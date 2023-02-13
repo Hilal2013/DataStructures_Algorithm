@@ -38,7 +38,8 @@ public class TwoSumTarget {
         //im gonna create map key will be each element
         // value will be index //to get index through using get()method
         for (int i = 0; i < nums.length; i++) {//2 7 11 15
-            if (map.containsKey(target - nums[i])) {//map contains the other element(target-element) //form your arr
+            if (map.containsKey(target - nums[i])) {
+                //if map contains the other element(target-element) at which index? //form your arr
                 arr[0] = map.get(target - nums[i]);//to get value means index//first element index
                 arr[1] = i;
 
@@ -52,7 +53,6 @@ public class TwoSumTarget {
         //nums.length=n    (c0+c1+c2)*n remove constant-> time complexity=>  O(n)
 
     }
-
 
 }
 /*
