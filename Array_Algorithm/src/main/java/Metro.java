@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Metro {
     public static void main(String[] args) {
@@ -6,20 +7,29 @@ public class Metro {
         stops.add(new int[] {10,0});
         stops.add(new int[] {3,5});
         stops.add(new int[] {2,5});
+        System.out.println(countPassengers(stops));//5
 
     }
-    public static int countPassengers(ArrayList<int[]> stops){
-        int sumGetInBus=0;
-        int sumGetOffBus=0;
+    public static int countPassengers(ArrayList<int[]> stops) {
+        int sumGetInBus = 0;
+        int sumGetOffBus = 0;
+        int countOfPassengers=0;
         for (int i = 0; i < stops.size(); i++) {
-          //  sumGetInBus+=stops.get(i).[0];
-
-         //   sumGetOffBus+=stops.get(i).[1];
+           sumGetInBus+=stops.get(i)[0];
+           sumGetOffBus+=stops.get(i)[1];
         }
-return sumGetOffBus;
+        countOfPassengers=sumGetInBus-sumGetOffBus;
+/*
+        if(countOfPassengers<=0){
+            System.err.println(" integer can't be negative");
+        }
+
+ */
+        return countOfPassengers;
+//2. What is the time complexity of your solution?
+        //stops.size()=n constant(c)*n remove constant-> time complexity=>  O(n)
+        //if we have if statement co*n + c1-> time complexity=>  O(n)
     }
-
-
 }
 /*
 1. There is a bus moving in the city, and it takes and drop some people in each bus stop.
@@ -33,4 +43,14 @@ Please keep in mind that the test cases ensure that the number of people in the 
 the return integer can't be negative.
 The second value in the first integer array is 0, since the bus is empty in the first bus stop.
 2. What is the time complexity of your solution?
+   int sumGetInBus=0;
+        int sumGetOffBus=0;
+        for (int i = 0; i < stops.size(); i++) {
+            sumGetInBus+=stops.get(i).[0];
+
+            sumGetOffBus+=stops.get(i).[1];
+        }
+return sumGetInBus-sumGetOffBus;
+
+
  */
