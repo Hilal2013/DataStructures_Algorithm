@@ -43,14 +43,5 @@ Please keep in mind that the test cases ensure that the number of people in the 
 the return integer can't be negative.
 The second value in the first integer array is 0, since the bus is empty in the first bus stop.
 2. What is the time complexity of your solution?
-   int sumGetInBus=0;
-        int sumGetOffBus=0;
-        for (int i = 0; i < stops.size(); i++) {
-            sumGetInBus+=stops.get(i).[0];
-
-            sumGetOffBus+=stops.get(i).[1];
-        }
-return sumGetInBus-sumGetOffBus;
-
 
  */
