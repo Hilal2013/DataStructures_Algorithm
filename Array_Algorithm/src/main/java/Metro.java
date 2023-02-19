@@ -8,7 +8,7 @@ public class Metro {
         stops.add(new int[] {3,5});
         stops.add(new int[] {2,5});
         System.out.println(countPassengers(stops));//5
-
+        System.out.println(countPassengersWithStream(stops));
     }
     public static int countPassengers(ArrayList<int[]> stops) {
         int sumGetInBus = 0;
@@ -29,6 +29,12 @@ public class Metro {
 //2. What is the time complexity of your solution?
         //stops.size()=n constant(c)*n remove constant-> time complexity=>  O(n)
         //if we have if statement co*n + c1-> time complexity=>  O(n)
+    }
+    //solution with stream
+    public static int countPassengersWithStream(ArrayList<int[]> stops) {
+        return stops.stream()
+                .mapToInt(x -> x[0] - x[1])
+                .sum();
     }
 }
 /*
