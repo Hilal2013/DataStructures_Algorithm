@@ -19,16 +19,10 @@ public class Metro {
            sumGetOffBus+=stops.get(i)[1];
         }
         countOfPassengers=sumGetInBus-sumGetOffBus;
-/*
-        if(countOfPassengers<=0){
-            System.err.println(" integer can't be negative");
-        }
 
- */
         return countOfPassengers;
 //2. What is the time complexity of your solution?
-        //stops.size()=n constant(c)*n remove constant-> time complexity=>  O(n)
-        //if we have if statement co*n + c1-> time complexity=>  O(n)
+       // time complexity=>  O(n)
     }
     //solution with stream
     public static int countPassengersWithStream(ArrayList<int[]> stops) {
