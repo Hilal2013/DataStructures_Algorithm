@@ -16,8 +16,18 @@ public class SetReview {
         set.add(new Student(3,"Mike"));
         set.add(new Student(4,"Mary"));
         System.out.println(set);
-        //String st= "Javva Developer";
+        String st= "Javva Developer";
+        System.out.println(firstRepeatingChar(st));
 
-        //System.out.println(firstRepeatingChar(st));
     }
+    public static Character firstRepeatingChar(String str){
+        //create a hasset
+        Set<Character> chars=new HashSet<>();//space complexity O(n)
+        //iterate over the charArray and add chars into hashSet
+       for(Character ch: str.toCharArray())
+           if(!chars.add(ch)) return ch;
+       //if add ops is false return that char
+return null;
+    }
+//time complexity is O(n)
 }
