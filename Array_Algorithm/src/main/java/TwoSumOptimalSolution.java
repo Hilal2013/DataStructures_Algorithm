@@ -9,6 +9,7 @@ public class TwoSumOptimalSolution {
     public static void main(String[] args) {
         int[] array=new int[]{2,7,9,11};
         System.out.println(Arrays.toString(twoSumOptimalSolution(array, 9)));//[1, 0]
+        System.out.println(Arrays.toString(twoSumOptimalSolution1(array,9)));//[7, 2]
     }
     public static int[] twoSumOptimalSolution(int[] array, int targetValue) {
         // Complexity of the solution is O(n) but I have space complexity of O(n)
@@ -17,7 +18,8 @@ public class TwoSumOptimalSolution {
         // value will be index //to get index through using get()method
         Map<Integer,Integer> map=new HashMap<>();
         for (int i = 0; i < array.length; i++) {
-int potentialMatch=targetValue-array[i];//9-2=7 if seven is exist//map contains 7
+
+            int potentialMatch=targetValue-array[i];//9-2=7 if seven is exist//map contains 7
             if(map.containsKey(potentialMatch)){
                 return new int[]{i,map.get(potentialMatch)};
             }else{
@@ -27,7 +29,21 @@ int potentialMatch=targetValue-array[i];//9-2=7 if seven is exist//map contains 
 
 return new int[]{};
     }
+    public static int[] twoSumOptimalSolution1(int[] array, int targetValue) {
 
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < array.length; i++) {//2 7 9 11
+
+            int potentialMatch = targetValue - array[i];//9-2=7 if seven is exist//map contains 7
+            if (map.containsKey(potentialMatch)) {
+                return new int[]{array[i],potentialMatch};
+            } else {
+                map.put(array[i], i);
+            }
+        }
+
+        return new int[]{};
+    }
 }
 /*
 Given an array of integers nums and an integer target, return indices of the two
