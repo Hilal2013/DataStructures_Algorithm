@@ -8,7 +8,7 @@ public class MapReview {
         Map<Integer, String> studentsMap = new HashMap<>();
         studentsMap.put(1, "Jack");
         studentsMap.put(2, "Julia");
-        String st = "JJavva DDevelloopperr";
+        String st = "JJaJva DDevelloopperr";
 
         System.out.println(findFirstNonRepeating(st));
     }
@@ -25,10 +25,12 @@ public class MapReview {
             if (map.containsKey(ch)) {
                 frequency = map.get(ch);//i will update
                 map.put(ch, frequency + 1);
+
             } else {
                 map.put(ch, 1);//this the first time I have seen ch
             }
         }
+        System.out.println(map);
         // start from the beginning and check if there is a char with frequency 1
         for (char ch : str.toCharArray()) {
             if(map.get(ch)==1){

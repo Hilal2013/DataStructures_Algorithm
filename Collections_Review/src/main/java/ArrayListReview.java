@@ -37,10 +37,14 @@ public class ArrayListReview {
 // 4. Lambda
         System.out.println("Printing with Lambda function loop..............");
 students.forEach(student-> System.out.println(student));
+
         // Sorting Elements in List using comparator interface
         System.out.println("Sorting with Comparator Interface by Id Desc......");
 Collections.sort(students, new sortByIdDesc());
-        students.forEach(student-> System.out.println(student));
+        System.out.println(students);
+        //[Student{id=4, name='Mary'}, Student{id=3, name='Mike'}, Student{id=2, name='Julia'}, Student{id=1, name='Jack'}]
+        students.forEach(System.out::println);
+
         System.out.println("Sorting with Comparator Interface by Name Desc......");
         Collections.sort(students, new sortByNameDesc());
         students.forEach(student-> System.out.println(student));
