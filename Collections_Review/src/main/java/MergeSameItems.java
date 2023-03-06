@@ -6,6 +6,13 @@ public class MergeSameItems {
        int[][] items1 = {{1,1},{4,5},{3,8}};
         int[][]  items2 = {{3,1},{1,5},};
         System.out.println(mergeSimilarItems(items1,items2));
+        int[][] items3 = {{1,1},{3,2},{2,3}};
+        int[][] items4 = {{2,1},{3,2},{1,3}};
+        System.out.println(mergeSimilarItems(items4,items3));//[[1, 4], [2, 4], [3, 4]]
+
+        int[][] items5 = {{1,3},{2,2}};
+        int[][] items6 = {{7,1},{2,2},{1,4}};
+        System.out.println(mergeSimilarItems(items5,items6));//[[1, 7], [2, 4], [7, 1]]
     }
     public static List<List<Integer>> mergeSimilarItems(int[][] items1, int[][] items2) {
         List<List<Integer>>  list=new ArrayList<>();
