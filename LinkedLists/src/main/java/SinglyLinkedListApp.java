@@ -10,8 +10,11 @@ mylist1.printNodes();//0=> 1=> 2=> 3=> 4=> 5=> 6=> 7=> 8=> 9=> null
 
         mylist1.deleteById(7);
         mylist1.printNodes();//0=> 1=> 2=> 3=> 4=> 5=> 6=> 8=> 9=> null// seven is gone
+        System.out.println("index of 1: "+mylist1.indexOf(1));
 
-        MySinglyLinkedList mylist2=new MySinglyLinkedList();
+        //  MySinglyLinkedList mylist2=new MySinglyLinkedList();
+
+
 
     }
 }
