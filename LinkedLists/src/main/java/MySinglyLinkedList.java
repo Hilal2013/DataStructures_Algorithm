@@ -10,10 +10,10 @@ public class MySinglyLinkedList {
     void add(int data) {
         //create new node object from data
 
-        Node node = new Node(data);
+        Node node = new Node(data);// we wil add this new node
         if (isEmpty()) {//if the list empty
             head = tail = node;
-        } else {
+        } else {//adding lastt?
             tail.next = node;
             tail = node;
             size++;
@@ -55,38 +55,59 @@ public class MySinglyLinkedList {
                 //case3: middle
                 else {
                     prev.next = current.next;
-                    current.next=null;//current will be eligible for Garbage collection
+                    current.next = null;//current will be eligible for Garbage collection
                 }
                 //after deletion
                 size--;
             }
             //if there is no match i need to iterate//move forward on the elements of the list
-                prev = current;//if i jump next one then previous will be lost so keep the track of previous
-                current = current.next;
+            prev = current;//if i jump next one then previous will be lost so keep the track of previous
+            current = current.next;
 
         }
 
     }
 
-    int indexOf(int id ){
-        if(isEmpty()) return -1;
-        int pos=0;
+    int indexOf(int id) {
+        if (isEmpty()) return -1;
+        int pos = 0;
         //iterate through the list
-        Node current=head;
+        Node current = head;
 
-        while(current!=null){
-            if(current.id==id) return pos;
+        while (current != null) {
+            if (current.id == id) return pos;
             pos++;
-            current=current.next;
+            current = current.next;
         }
         //if i cannot find the element in this loop
         return -1;
 
     }
 
+    //  Implement a method that makes the insertion into first element of LinkedList
+    void addFirst(int data) {
+        //create a new node and add this node into first element
+        Node node = new Node(data);
+        if (isEmpty()) {
+            head = tail = node;
+        } else {
+            node.next = head;
+            head = node;
+        }
 
 
+    }
 
-
-
+    public int getKthFromLast(int k) {
+        Node p1 = head;
+        Node p2 = head;
+        for (int i = 0; i < k; i++) {
+            p2 = p2.next;
+        }
+        while (p2.next != null) {
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+        return p1.id;
+    }
 }
