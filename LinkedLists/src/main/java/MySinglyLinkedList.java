@@ -101,7 +101,7 @@ public class MySinglyLinkedList {
     public int getKthFromLast(int k) {
         Node p1 = head;
         Node p2 = head;
-        for (int i = 0; i < k; i++) {//p2(fast) will move
+        for (int i = 0; i < k-1; i++) {//p2(fast) will move
             p2 = p2.next;
         }
         while (p2.next != null) {//when p2 came k point p1 will start moving and p2 too
