@@ -114,17 +114,20 @@ public class MySinglyLinkedList {
     public void removeKthFromLast(int k) {
         Node p1 = head;
         Node p2 = head;
-        for (int i = 0; i < k; i++) {
+        Node prev=head;
+        for (int i = 0; i < k-1; i++) {
             p2 = p2.next;
         }
         while (p2.next != null) {
+            prev=p1;
             p1 = p1.next;
             p2 = p2.next;
         }
 
-        Node prev = p1.next;
-        p1.next = prev.next;
-        prev = null; //break link
+        prev.next=p1.next;
+        p1.next=null; //break link
+
+
 
 
     }

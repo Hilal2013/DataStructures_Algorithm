@@ -20,8 +20,8 @@ mylist.printNodes();//0=> 1=> 2=> 3=> 4=> 5=> 6=> 7=> 8=> 9=> null
         }
         mylist1.printNodes();//0=> 1=> 2=> 3=> 4=> 5=> 6=> 7=> 8=> 9=> null
 
-        System.out.println(mylist1.getKthFromLast(4));//5
+        System.out.println(mylist1.getKthFromLast(4));//6
         mylist1.removeKthFromLast(4);
-        mylist1.printNodes();
+        mylist1.printNodes();//0=> 1=> 2=> 3=> 4=> 5=> 7=> 8=> 9=> null
     }
 }
