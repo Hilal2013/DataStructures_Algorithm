@@ -38,7 +38,11 @@ public class LinkedListDemo {
 //        Id of node is: 3
 //        Id of node is: 4
 
+
+
+
+
     }
-   // ArrayList<Node> nodeArrayList=new ArrayList<>();
+
 
 }
