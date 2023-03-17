@@ -12,24 +12,61 @@ public class MySinglyLinkedList {
 
         Node node = new Node(data);
         if (isEmpty()) {//if the list empty
-    head=tail=node;
-        }else{
-            tail.next=node;
-            tail=node;
+            head = tail = node;
+        } else {
+            tail.next = node;
+            tail = node;
             size++;
         }
 
     }
-void printNodes(){
-        Node current=head;
-        while(current != null){
-            if(current.next == null){
-                System.out.print(current.id + "=> null");}
-          else{  System.out.print(current.id + "=> ");
-           }
-            current=current.next;
+
+    void printNodes() {
+        Node current = head;
+        while (current != null) {
+            if (current.next == null) {
+                System.out.println(current.id + "=> null");
+            } else {
+                System.out.print(current.id + "=> ");
+            }
+            current = current.next;
         }
-}
+    }
+
+    void deleteById(int id) {
+//check if empty
+        if (isEmpty()) System.out.println("List is empty!!!");
+        //assign previous and current with the head
+        Node prev = head;
+        Node current = head;
+        while (current != null) {
+            if (current.id == id) {//if there is a match handle three cases
+                //case1;head
+                if (current == head) {
+                    head = current.next;
+                    current.next = null;// i need to break link//head is gone and updated thead with next value
+                }
+                //case2:tail
+                else if (current == tail) {
+                    tail = prev;
+                    prev.next = null;//ex-tail will be eligible for garbage collection
+
+                }
+                //case3: middle
+                else {
+                    prev.next = current.next;
+                    current.next=null;//current will be eligible for Garbage collection
+                }
+                //after deletion
+                size--;
+            }
+            //if there is no match i need to iterate//move forward on the elements of the list
+                prev = current;//if i jump next one then previous will be lost so keep the track of previous
+                current = current.next;
+
+        }
+
+    }
 
 
 }
