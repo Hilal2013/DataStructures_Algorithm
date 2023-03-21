@@ -15,7 +15,7 @@ public class Metro {
         int sumGetOffBus = 0;
         int countOfPassengers=0;
         for (int i = 0; i < stops.size(); i++) {
-           sumGetInBus+=stops.get(i)[0];
+           sumGetInBus+=stops.get(i)[0];//stops arraylist ->to access array get(i)->first index of array[0]
            sumGetOffBus+=stops.get(i)[1];
         }
         countOfPassengers=sumGetInBus-sumGetOffBus;
@@ -27,9 +27,12 @@ public class Metro {
     //solution with stream
     public static int countPassengersWithStream(ArrayList<int[]> stops) {
         return stops.stream()
-                .mapToInt(x -> x[0] - x[1])
-                .sum();
+                .mapToInt(x -> x[0] - x[1])//inside arraylist object to get array ints 10-0, 3-5,2-5
+                .sum();//10-2-5
     }
+
+
+
 }
 /*
 1. There is a bus moving in the city, and it takes and drop some people in each bus stop.
