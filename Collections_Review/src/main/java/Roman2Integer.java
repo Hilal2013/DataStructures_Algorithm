@@ -28,6 +28,7 @@ public class Roman2Integer {
 
         int sum=0;
         char[] array=s.toCharArray();
+
         for (int i = 0; i < array.length; i++) {
             if(i==array.length-1){
                 sum=sum+map.get(array[i]);
@@ -41,6 +42,7 @@ public class Roman2Integer {
                 i++;//we should increase not to compare same characters
             }
         }
+
         return sum;
     }
 }
