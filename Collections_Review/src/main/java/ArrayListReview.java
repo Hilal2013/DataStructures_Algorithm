@@ -34,7 +34,7 @@ public class ArrayListReview {
         }
         //or
         ListIterator iter1 = students.listIterator();
-        while (iter1.hasPrevious()) {//i cannot jump into specific element
+        while (iter1.hasPrevious()) {
             System.out.println(iter1.hasPrevious());
         }
 // 3. for each loop
