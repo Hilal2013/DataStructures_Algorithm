@@ -22,10 +22,14 @@ public class ArrayListReview2 {
 
 
         //convert an ArrayList to Array using streams
-        int[] arr3=list3.stream().mapToInt(i->i).toArray();
+        int[] arr3=list3.stream()
+                .mapToInt(i->i)
+                .toArray();
+        System.out.println(Arrays.toString(arr3));
 
         // Sort without comparator
         Collections.sort(list2,Collections.reverseOrder());
+       // list2.sort(Collections.reverseOrder());
         System.out.println(list2);
 //[8, 7, 6, 4, 3, 2, 1]
         // Binary Search on collections//O(log n)
