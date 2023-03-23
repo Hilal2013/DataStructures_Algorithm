@@ -20,7 +20,7 @@ public class MapReview2 {
         // How to get entry Set
 Set<Map.Entry<Integer,String>> entries=studentsMap.entrySet();
         System.out.println(entries);//[1=Jack, 2=Julia, 3=Alison]
-
+        System.out.println(studentsMap.keySet());//[1, 2, 3]
         // How to get Key set
         System.out.println("Printing key set");
         for (Integer eachKey : studentsMap.keySet()) {
@@ -29,8 +29,10 @@ Set<Map.Entry<Integer,String>> entries=studentsMap.entrySet();
            // 2
            // 3
         }
-
-
+        studentsMap.keySet().stream().forEach(System.out::println);
+        //1
+        // 2
+        // 3
 
     }
 
