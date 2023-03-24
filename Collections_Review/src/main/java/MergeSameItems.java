@@ -37,4 +37,31 @@ list.add(new ArrayList<>(Arrays.asList(each.getKey(),each.getValue())));
      //   return new ArrayList<>(new ArrayList<>());
         return list;//[[1, 6], [3, 9], [4, 5]]
     }
+
+    public static List<List<Integer>> mergeSimilarItems1(int[][] items1, int[][] items2){
+
+        List<List<Integer>>  list=new ArrayList<>();
+
+        Map<Integer,Integer> map=new TreeMap<>();
+
+        for (int[] item1 : items1) {
+            map.put(item1[0],item1[1]);
+        }
+
+        for (int[] item2 : items2) {
+            if(map.containsKey(item2[0])){
+                map.put(item2[0],map.get(item2[0])+item2[1]);
+            }else{
+                map.put(item2[0],item2[1]);
+            }
+        }
+        for (Map.Entry<Integer, Integer> each : map.entrySet()) {
+            list.add(new ArrayList<>(Arrays.asList(each.getKey(),each.getValue())));
+        }
+       return  list;
+    }
+
+
+
+
 }
