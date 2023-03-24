@@ -10,7 +10,7 @@ mylist.printNodes();//0=> 1=> 2=> 3=> 4=> 5=> 6=> 7=> 8=> 9=> null
 
         mylist.deleteById(7);
         mylist.printNodes();//0=> 1=> 2=> 3=> 4=> 5=> 6=> 8=> 9=> null// seven is gone
-        System.out.println("index of 1: "+mylist.indexOf(1));
+        System.out.println("index of 1: "+mylist.indexOf(1));//1
         mylist.addFirst(10);
         mylist.printNodes();
 
