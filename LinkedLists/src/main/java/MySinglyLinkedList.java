@@ -24,7 +24,7 @@ public class MySinglyLinkedList {
     void printNodes() {
         Node current = head;
         while (current != null) {
-            if (current.next == null) {
+            if (current.next == null) {//it means head==tail//we have one node
                 System.out.println(current.id + "=> null");
             } else {
                 System.out.print(current.id + "=> ");
@@ -32,6 +32,7 @@ public class MySinglyLinkedList {
             current = current.next;
         }
     }
+
 
     void deleteById(int id) {
 //check if empty
@@ -68,6 +69,7 @@ public class MySinglyLinkedList {
 
     }
 
+
     int indexOf(int id) {
         if (isEmpty()) return -1;
         int pos = 0;
@@ -99,35 +101,40 @@ public class MySinglyLinkedList {
     }
 
     public int getKthFromLast(int k) {
-        Node p1 = head;
-        Node p2 = head;
-        for (int i = 0; i < k-1; i++) {//p2(fast) will move
-            p2 = p2.next;
+        Node fast = head;
+        Node slow = head;
+
+        if (isEmpty()){
+            System.out.println("List is empty");
         }
-        while (p2.next != null) {//when p2 came k point p1 will start moving and p2 too
-            p1 = p1.next;
-            p2 = p2.next;
+
+        for (int i = 0; i < k - 1; i++) {//fast should  move four times it starts from 0 ;3 times will move and will acces to 4thfrom begin
+            fast = fast.next;
         }
-        return p1.id;
+        while (fast.next != null) {//when p2 came k point p1 will start moving and p2 too
+            slow = slow.next;
+            fast = fast.next;
+
+        }
+
+        return slow.id;
     }
 
     public void removeKthFromLast(int k) {
-        Node p1 = head;
-        Node p2 = head;
-        Node prev=head;
-        for (int i = 0; i < k-1; i++) {
-            p2 = p2.next;
+        Node slow = head;
+        Node fast = head;
+        Node prev = head;
+        for (int i = 0; i < k - 1; i++) {
+            fast = fast.next;
         }
-        while (p2.next != null) {
-            prev=p1;
-            p1 = p1.next;
-            p2 = p2.next;
+        while (fast.next != null) {
+            prev = slow;
+            slow = slow.next;
+            fast = fast.next;
         }
 
-        prev.next=p1.next;
-        p1.next=null; //break link
-
-
+        prev.next = slow.next;
+        slow.next = null; //break link
 
 
     }
