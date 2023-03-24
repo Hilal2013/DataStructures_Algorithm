@@ -14,7 +14,7 @@ public class BoxAverage {
         }
         //OUTPUT [uncomment & modify if required]
 
-        System.out.print(boxAverage (ans));
+        System.out.print(boxAverage1 (ans));
     }
 
         public static int boxAverage (ArrayList<Integer> ans){
@@ -32,10 +32,32 @@ public class BoxAverage {
                 else if(an<min) min=an;
             }
             // return the avg of min and max
-            result= (int) Math.ceil((float)(min+max)/2);
-
+            result= (int) Math.ceil((float)(min+max)/2);//returns the smallest int value//it takes double so cast int
+//A ceil() value means rounding up the decimal value to the nearest integer.
             return result;
     }
+
+    public static int boxAverage1 (ArrayList<Integer> ans){
+
+double result=-404;
+
+        double min= ans.get(0);
+        double max=ans.get(0);
+        for (int i = 0; i < ans.size(); i++) {
+            min = Math.min(ans.get(i),min);
+            max = Math.max(ans.get(i),max);
+
+
+        }
+
+        result = (min + max)/2;
+
+        System.out.println(result);
+        BigDecimal bd=new BigDecimal(result);
+bd.setScale(0,RoundingMode.CEILING);
+      return bd.intValue();
+    }
+
 
     /*Box Average
     There is a truck in which we have to keep some undecided number of different boxes with each box having some weight assigned to it.

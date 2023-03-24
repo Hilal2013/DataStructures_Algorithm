@@ -24,7 +24,7 @@ public class LetterCandles {
         System.out.println("Enter number candles that can be removed : ");
         String letters = reader.readLine();
 
-        System.out.println(letterCandlesCost(letterCount, m, letters));
+        System.out.println(letterCandlesCost1(letterCount, m, letters));
     }
 
     public static int letterCandlesCost(int letterCount, int m, String str) {
@@ -69,7 +69,40 @@ public class LetterCandles {
         // return result O(n)
         return cost;
     }
+    public static int letterCandlesCost1(int letterCount, int m, String str) {
+        int cost = 0;
+        Map<Character, Integer> map = new HashMap<>();
+        int count;
+        // calculate freq
+        for (Character ch : str.toCharArray()) {
+            if (map.containsKey(ch)) {
+                count = map.get(ch);//update frequency
+                map.put(ch, count + 1);
+            } else map.put(ch, 1);
+        }
+        System.out.println(map);////abccbc for this example=>{a=1, b=2, c=3}
+        List<Integer> letterFreq = map.values().stream().sorted((o1, o2) -> o2.compareTo(o1)).collect(toList());//descending
+        System.out.println(letterFreq);//abccbc for this example=>[3, 2, 1]
+        int index=0;
+        while(m>0 && index<letterFreq.size()){
+            if ( letterFreq.size()==1) {
+                letterFreq.set(0,letterFreq.get(0)-1);
+                m--;
+            }else if (letterFreq.get(index)>=letterFreq.get(index+1)) {
+                letterFreq.set(index,letterFreq.get(index)-1);
+                m--;
+            } else if (letterFreq.get(index)<letterFreq.get(index+1)) {
+                letterFreq.set(index+1,letterFreq.get(index+1)-1);
+                m--;
+            }
+            else index++;
+        }
+        for (Integer each : letterFreq) {
+            cost+=Math.pow(each,2);
+        }
 
+      return cost;
+    }
 
 }
 /*
