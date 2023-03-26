@@ -17,9 +17,9 @@ public class MySinglyLinkedList {
             tail.next = node;
             tail = node;
             //  node.next=null;
-            size++;
-        }
 
+        }
+        size++;
     }
 
     void printNodes() {
@@ -98,6 +98,23 @@ public class MySinglyLinkedList {
             head = node;
         }
 
+
+    }
+
+    public void addMiddle(int id,int k){
+        Node node = new Node(id);
+        Node prev = head;
+        Node current = head;
+  int size=0;
+        while(current!=null){
+            if(size==k){
+                prev.next=node;
+                node.next=current;
+            }
+            prev=current;
+            current=current.next;
+            size++;
+        }
 
     }
 
