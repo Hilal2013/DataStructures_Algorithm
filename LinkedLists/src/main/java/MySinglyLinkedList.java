@@ -16,6 +16,7 @@ public class MySinglyLinkedList {
         } else {//adding lastt?
             tail.next = node;
             tail = node;
+            //  node.next=null;
             size++;
         }
 
@@ -104,7 +105,7 @@ public class MySinglyLinkedList {
         Node fast = head;
         Node slow = head;
 
-        if (isEmpty()){
+        if (isEmpty()) {
             System.out.println("List is empty");
         }
 
@@ -139,4 +140,168 @@ public class MySinglyLinkedList {
 
     }
 
+    void removeDuplicates() {
+
+        Node current = head;
+        while (current != null && current.next != null) {
+            if (current.id == current.next.id)
+                current.next = current.next.next;
+            else
+                current = current.next;
+        }
+
+    }
+    public boolean isPalindrome(Node head) {
+
+
+
+        return false;
+    }
+    void reverseList() {
+        Node current = head;
+        Node previous = null;
+
+
+
+        if(head == null || head.next == null){
+          //  return null;
+        }
+
+        while(current!=null){
+            Node temp = current.next;
+            current.next = previous;
+            previous = current;
+            current = temp;
+        }
+     //   return previous;
+
+    }
+
+
+    public Node mergeTwoLists(Node list1, Node list2) {
+        if (list1 == null && list2 == null) {
+            return null;
+        }
+        if (list1 == null && list2 != null) {
+            return list2;
+        }//if list1 is nul just add/return list2
+        if (list1 != null && list2 == null) {
+            return list1;
+        }
+
+
+        while (list1 != null && list2 != null) {
+            if (list1.id <= list1.id) {
+
+            }
+        }
+
+        return null;
+
+    }
 }
+/*
+public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+
+        ListNode dummy= new ListNode(0);
+        ListNode current= dummy;
+        while(list1 !=null && list2 !=null){
+            if(list1.val <= list2.val) {
+                current.next=list1;
+                list1=list1.next;
+            }
+            else {
+                current.next=list2;
+                list2= list2.next;
+            }
+            current =current.next;
+        }
+        current.next= list1 ==null? list2: list1;
+        return dummy.next;
+    }
+
+    ListNode i = list1,j=list2;
+        ListNode head = null,tail=null;
+        while((i!=null) && (j!=null)){
+            if(i.val<=j.val){
+                if(head == null){
+                    head = i;
+                    tail = i;
+                    i  = i.next;
+                }else{
+                    tail.next = i;
+                    tail = tail.next;
+                    i = i.next;
+                }
+            }else{
+                if(head == null){
+                    head = j;
+                    tail = j;
+                    j  = j.next;
+                }else{
+                    tail.next = j;
+                    tail = tail.next;
+                    j = j.next;
+                }
+            }
+        }
+        while(i!=null){
+            tail.next=i;
+            tail = tail.next;
+            i = i.next;
+        }
+        while(j!=null){
+            tail.next=j;
+            tail = tail.next;
+            j = j.next;
+        }
+        return head;
+
+       public boolean isPalindrome(ListNode head) {
+        String str = "";
+        ListNode l = head;
+        while(l != null){
+            str += String.valueOf(l.val);
+            l=l.next;
+        }
+        int low=0;
+        int high=str.length()-1;
+        while(low<=high){
+            if(str.charAt(low) != str.charAt(high)){
+                return false;
+            }
+            low++;
+            high--;
+        }
+        return true;
+    }
+ public boolean isPalindrome(ListNode head) {
+        ListNode slow = head, fast = head, dummy = head;
+        while(fast.next != null && fast.next.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        slow.next = reverse(slow.next);
+        slow = slow.next;
+
+        while(slow!=null){
+            if(dummy.val != slow.val)
+                return false;
+            dummy = dummy.next;
+            slow = slow.next;
+        }
+        return true;
+
+    }
+    public ListNode reverse(ListNode head){
+        ListNode curr = head, prev = null, next = null;
+        while(curr != null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
+
+ */
