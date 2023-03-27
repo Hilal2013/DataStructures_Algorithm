@@ -107,7 +107,7 @@ node=slow.next;
                     prev.next = current.next;
                     current.next = null;
                 }
-                size++;
+                size--;
             }
             prev = current;
             current = current.next;
