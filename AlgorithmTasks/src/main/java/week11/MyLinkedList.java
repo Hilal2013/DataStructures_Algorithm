@@ -4,7 +4,6 @@ public class MyLinkedList {
     Node head;
     Node tail;
     int size;
-
     public MyLinkedList() {
         this.size = 0;
     }
@@ -23,7 +22,6 @@ public class MyLinkedList {
         }
 
     }
-
     void printMyList() {
         Node current=head;
 
@@ -36,7 +34,6 @@ while(current!=null){
         System.out.println();
     }
 
-
     void deleteNNodesAfterMNodes(int n, int m) {
         Node current=head;
         Node prev=head;
@@ -47,24 +44,15 @@ while(current!=null){
             prev=current;
                 current=current.next;
         }
-
+            if (current == null) {return;}
             for (int i = 1; i <=n ; i++) {//n times removing
                 prev.next=current.next;
-                current.next=null;
+                current=current.next;
                 size--;
 
-
             }
-            prev=current;
-            current=current.next;
-            if (current == null) {return;}
 
             }
         }
-
-
-
-
-
 
 }
