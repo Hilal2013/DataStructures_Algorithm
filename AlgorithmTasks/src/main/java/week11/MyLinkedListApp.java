@@ -8,6 +8,6 @@ public class MyLinkedListApp {
         }
       myList.printMyList();
 myList.deleteNNodesAfterMNodes(3,2);
-        myList.printMyList();
+        myList.printMyList();//1 => 2 => 6 => 7 => 11 => 12 => null
     }
 }
