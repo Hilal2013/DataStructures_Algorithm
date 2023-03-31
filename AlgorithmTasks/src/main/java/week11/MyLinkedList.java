@@ -44,7 +44,7 @@ while(current!=null){
             prev=current;
                 current=current.next;
         }
-            if (current == null) {return;}
+           if (current == null) {return;}
             for (int i = 1; i <=n ; i++) {//n times removing
                 prev.next=current.next;
                 current=current.next;
