@@ -10,10 +10,22 @@ import java.util.TreeMap;
 public class SingleNumber {
     public static void main(String[] args) {
 
+
+       // int[] arr = {4,1,2,1,2};
         int[] arr = {2,2,1};
+        System.out.println(singleNumberWithBitWiseXOR(arr));
         System.out.println(singleNumberTwoPointers(arr));
         System.out.println(singleNumberWithMap(arr));
 
+
+    }
+    public static int singleNumberWithBitWiseXOR(int[] nums){
+  int value=0;
+        for (int num : nums) {
+            value=value^num;    //
+
+        }
+        return value;
     }
 
     public static int singleNumberTwoPointers(int[] nums) {
