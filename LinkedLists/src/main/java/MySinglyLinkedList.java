@@ -96,6 +96,7 @@ public class MySinglyLinkedList {
         } else {
             node.next = head;
             head = node;
+            size++;
         }
 
 
@@ -126,7 +127,7 @@ public class MySinglyLinkedList {
             System.out.println("List is empty");
         }
 
-        for (int i = 0; i < k - 1; i++) {//fast should  move four times it starts from 0 ;3 times will move and will acces to 4thfrom begin
+        for (int i = 0; i < k - 1; i++) {//fast should  move 3 times
             fast = fast.next;
         }
         while (fast.next != null) {//when p2 came k point p1 will start moving and p2 too
