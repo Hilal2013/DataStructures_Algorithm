@@ -14,6 +14,40 @@ public class SunsetViews {
 
             for (int i = 0; i<buildings.length ; i++) {
 
+                    if (buildings[i] >=buildings[stack.peek()]) {
+                        stack.pop();
+                        if(!stack.empty() && buildings[i]>=buildings[stack.peek()]){
+                            stack.pop();
+                        }
+                    }
+                    stack.push(i);
+            }
+        }
+        System.out.println(stack);//[5, 4,3, 2]//[1, 3, 6, 7]
+
+        if (direction.equals("left")||direction.equals("west")){
+            for (int i = buildings.length - 1; i >= 0; i--) {
+                if (buildings[i] >=buildings[stack.peek()]) {
+                    stack.pop();
+                    if(!stack.empty() && buildings[i]>=buildings[stack.peek()]){
+                        stack.pop();
+                    }
+                }
+                stack.push(i);
+            }
+
+        }
+
+        System.out.println(stack);//[5,3]// [1, 0]
+          if(direction.equalsIgnoreCase("west")) Collections.reverse(stack);//[0, 1]
+        return new ArrayList<Integer>(stack);
+    }
+}
+
+/*  if (direction.equals("right")||direction.equals("east")){
+
+            for (int i = 0; i<buildings.length ; i++) {
+
                     if (buildings[i] >=stack.peek()) {
                         stack.pop();
                         if(!stack.empty() && buildings[i]>=stack.peek()){
@@ -39,8 +73,4 @@ public class SunsetViews {
         }
 
         return new ArrayList<Integer>();
-    }
-}
-
-/*
   */
