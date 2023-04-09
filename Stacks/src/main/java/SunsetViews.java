@@ -3,29 +3,44 @@ import java.util.*;
 public class SunsetViews {
     public static void main(String[] args) {
         int[] buildings={3, 5, 4, 4, 3, 1, 3, 2};
-        sunsetViews(buildings,"West").forEach(System.out::println);
+        System.out.println(sunsetViews(buildings,"west"));
     }
     public static ArrayList<Integer> sunsetViews(int[] buildings, String direction) {
-        Stack<Integer> stack=new Stack<>();// stack to hold building indicies that can see sunset
-        // this part is for East by default
-        int i=0;
-        int step=1;
-        // this part is for west
-        if(direction.equalsIgnoreCase("west")) {
-            i= buildings.length-1;
-            step=-1;
-        }
-        while(i>=0 && i< buildings.length) {
 
-            while(!stack.isEmpty() && buildings[i]>=buildings[stack.peek()]){
-                stack.pop();
+        Stack<Integer> stack=new Stack<>();
+
+        stack.push(0);//bottom will be 0
+        if (direction.equals("right")||direction.equals("east")){
+
+            for (int i = 0; i<buildings.length ; i++) {
+
+                    if (buildings[i] >=stack.peek()) {
+                        stack.pop();
+                        if(!stack.empty() && buildings[i]>=stack.peek()){
+                            stack.pop();
+                        }
+                    }
+                    stack.push(buildings[i]);
             }
-            stack.push(i);
-            i+=step;
         }
-            // now I have a stack with the building indicies that can see sunset
-        if(direction.equalsIgnoreCase("west")) Collections.reverse(stack);
+        System.out.println(stack);//[5, 4,3, 2]
 
-        return new ArrayList<Integer>(stack);
+        if (direction.equals("left")||direction.equals("west")){
+            for (int i = buildings.length - 1; i >= 0; i--) {
+                if (buildings[i] >=stack.peek()) {
+                    stack.pop();
+                    if(!stack.empty() && buildings[i]>=stack.peek()){
+                        stack.pop();
+                    }
+                }
+                stack.push(buildings[i]);
+            }
+            System.out.println(stack);//[5, 3]
+        }
+
+        return new ArrayList<Integer>();
     }
 }
+
+/*
+  */
