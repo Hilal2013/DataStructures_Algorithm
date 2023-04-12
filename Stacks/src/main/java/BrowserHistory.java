@@ -44,8 +44,9 @@ public class BrowserHistory {
         int steps2=steps;
         // Pop elements from 'forward' stack, and push elements in 'history' stack.
         while (steps > 0 && !forwardStack.isEmpty()) {
-            historyCurrent.push(currentPage);
             currentPage = forwardStack.pop();
+            historyCurrent.push(currentPage);
+
             steps--;
         }
         System.out.println("Forwar Operation of "+steps2+ " brings "+currentPage);
