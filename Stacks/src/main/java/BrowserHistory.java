@@ -35,6 +35,7 @@ public class BrowserHistory {
         while (steps > 0 && !historyCurrent.isEmpty()) {
             forwardStack.push(currentPage);
             currentPage = historyCurrent.pop();//mark it as currentpage
+            steps--;
         }
         System.out.println("Back Operation of "+steps2+ " brings "+currentPage);
         return currentPage;
@@ -44,9 +45,8 @@ public class BrowserHistory {
         int steps2=steps;
         // Pop elements from 'forward' stack, and push elements in 'history' stack.
         while (steps > 0 && !forwardStack.isEmpty()) {
-            currentPage = forwardStack.pop();
             historyCurrent.push(currentPage);
-
+            currentPage = forwardStack.pop();
             steps--;
         }
         System.out.println("Forwar Operation of "+steps2+ " brings "+currentPage);
