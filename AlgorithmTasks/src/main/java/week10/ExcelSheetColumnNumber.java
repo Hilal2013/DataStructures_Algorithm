@@ -51,7 +51,7 @@ int p=columnTitle.length()-1;
     }
 
     @Test
-public void testTitleTonumber(){
+public void testTitleToNumber(){
       Assertions.assertEquals(1,titleToNumber("A"));
         Assertions.assertEquals(27,titleToNumber("AA"));
         Assertions.assertEquals(701,titleToNumber("ZY"));
