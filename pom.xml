@@ -14,8 +14,9 @@
         <module>Collections_Review</module>
         <module>LinkedLists</module>
         <module>AlgorithmTasks</module>
-        <module>Stack</module>
-        <module>Stack</module>
+        <module>Stacks</module>
+
+        <module>AlgorithmProblems</module>
     </modules>
 
     <properties>
