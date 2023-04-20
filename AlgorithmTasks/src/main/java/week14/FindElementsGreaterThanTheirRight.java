@@ -45,6 +45,7 @@ public class FindElementsGreaterThanTheirRight {
     public void testFind() {
         Assertions.assertEquals(List.of(10,6,5),find(new int[]{10,4,6,3,5}));
         Assertions.assertEquals(List.of(8,1),find(new int[]{3, 4, 6, 8, 1}));
+        Assertions.assertEquals(List.of(3),find(new int[]{3}));
     }
 
 }
