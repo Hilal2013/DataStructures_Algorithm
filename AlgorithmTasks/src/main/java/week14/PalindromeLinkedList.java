@@ -4,32 +4,38 @@ public class PalindromeLinkedList {
 
 
     public boolean isPalindrome(ListNode head) {
-        ListNode slow = head, fast = head, prev, nextNode, current;
+        if(head==null ||head.next==null){
+            return true;
+        }
 //find middle point
-        while (fast != null && fast.next != null) {
+        ListNode slow = head;
+        ListNode fast = head;
+        while(fast != null && fast.next != null){
             slow = slow.next;
-            fast = fast.next;
+            fast = fast.next.next;
         }
 //reverse 2nd half of linkedlist
-        prev=slow;
-        current=slow.next;
-        prev.next=null;//we break the reverse cycle and avoid endless loop
-
-        while (current != null) {
+        ListNode prev = null;
+        ListNode current = slow;
+        ListNode nextNode;
+        while(current!=null){
             nextNode = current.next;
             current.next = prev;
             prev = current;
             current = nextNode;
         }
-       //palindrome check first half and second half
-        ListNode left = head, right = prev;
-        while (left != null && right != null) {
-            if(left.val!=right.val)return false;
-            left=left.next;
-            right=right.next;
-
+        //palindrome check first half and second half
+        ListNode right = prev;//head of the 2nd half
+        ListNode left = head;
+        // check right & left (compare)
+        while(right !=null){
+            if(right.val != left.val){
+                return false;
+            }
+            right = right.next;
+            left = left.next;
         }
-return true;
+        return true;
     }
 
 
@@ -53,4 +59,5 @@ return true;
 
         return true;
     }
+
 }
