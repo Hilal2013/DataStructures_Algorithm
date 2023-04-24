@@ -14,14 +14,14 @@ public class UniqueNumberOfOccurrences {
     }
     public static boolean uniqueOccurrences(int[] arr) {
         // create a hashmap (Integer,Integer) (Elements, Freq.)
-        Map<Integer, Integer> freq=new HashMap<>();
-        // count number of occurences and put them in map
+        Map<Integer, Integer> map=new HashMap<>();
+        // count number of occurrences and put them in map
         for (int i : arr) {
-            freq.put(i,freq.getOrDefault(i,0) +1);
+            map.put(i,map.getOrDefault(i,0) +1);
         }
         // put the frequencies in a set find if there are any duplicated values
         Set<Integer> freqSet=new HashSet<>();
-        for (Integer value : freq.values()) {
+        for (Integer value : map.values()) {
             // returns false if you add duplicate
             if (!freqSet.add(value)) return false;
         }
