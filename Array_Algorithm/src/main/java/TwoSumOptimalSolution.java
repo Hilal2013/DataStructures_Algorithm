@@ -4,9 +4,9 @@ public class TwoSumOptimalSolution {
 
 
     public static void main(String[] args) {
-        int[] array = new int[]{3, 2, 4};
-        System.out.println(Arrays.toString(twoSumWithTwoPointers(array, 6)));//[1, 2]
-        System.out.println(Arrays.toString(twoSumWithHashMap(array, 6)));//[1, 0]
+        int[] array = {1,3, 2, 4};
+        System.out.println(Arrays.toString(twoSumWithTwoPointers(array, 6)));
+        System.out.println(Arrays.toString(twoSumWithHashMap(array, 6)));
 
 
     }
@@ -92,10 +92,7 @@ public class TwoSumOptimalSolution {
             if (nums[left] + nums[right] == target) {
                 arr = new int[]{left, right};
                 break;
-            } else if (nums[left] + nums[right] > target) {
-                right--;
-
-            } else left++;
+            }else left++;
         }
         return arr;
     }
