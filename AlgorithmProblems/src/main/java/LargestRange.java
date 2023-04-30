@@ -2,46 +2,46 @@ import java.util.*;
 
 public class LargestRange {
     public static void main(String[] args) {
-        int [] myArray=new int[]{1,11, 3, 0, 15, 5, 2, 4, 10, 7, 12, 6};
+        int[] myArray = new int[]{1, 11, 3, 0, 15, 5, 2, 4, 10, 7, 12, 6};
         System.out.println(Arrays.toString(largestRange(myArray)));
     }
+
     public static int[] largestRange(int[] array) {
-        int[] bestRange=new int[2];
-        int largestRange=0;
-       Map<Integer,Boolean> numsMap = new HashMap<>();
+        int[] bestRange = new int[2];
+        int largestRange = 0;
+        Map<Integer, Boolean> numsMap = new HashMap<>();
         // first make all the elements true in hashmap
-        for(int i = 0; i<array.length;i++){
+        for (int i = 0; i < array.length; i++) {
             numsMap.put(array[i], true);
         }
 
         for (int i : array) {
-            if(!numsMap.get(i)) continue;
-            int currentLength=1;
-int left=i-1;
-int right=i+1;
+            if (!numsMap.get(i)) continue;//false continue
+            int currentLength = 1;
+            int left = i - 1;
+            int right = i + 1;
 //find the left edge
-            while(numsMap.containsKey(left)){
-                numsMap.put(left,false);
+            while (numsMap.containsKey(left)) {
+                numsMap.put(left, false);
                 currentLength++;
                 left--;
             }
 
-            while(numsMap.containsKey(right)){
-                numsMap.put(right,false);
+            while (numsMap.containsKey(right)) {
+                numsMap.put(right, false);
                 currentLength++;
                 right++;
             }
-if(currentLength>largestRange){
-    largestRange=currentLength;
-    bestRange=new int[]{left+1,right-1};
-}
+            if (currentLength > largestRange) {
+                largestRange = currentLength;
+                bestRange = new int[]{left + 1, right - 1};
+            }
         }
 
 
+        int min = Integer.MIN_VALUE;
 
-int min=Integer.MIN_VALUE;
-
-        return new int[]{};
+        return bestRange;
     }
 }
 /*
