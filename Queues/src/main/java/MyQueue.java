@@ -62,14 +62,14 @@ public class MyQueue<T> {
        }
 
         System.out.println(stack);//[10, 20, 30, 40]
-       //but mq has now other elements after k
-       while(!mq.isEmpty()){
-           mq.dequeue();
-       }
+
         while (!stack.isEmpty()) {
             mq.enqueue(stack.pop());
 
         }
+       for (int i = 0; i < mq.size()-k ; i++) {
+           mq.enqueue(mq.dequeue());
+       }
         mq.printQueue();
         return mq;
     }
