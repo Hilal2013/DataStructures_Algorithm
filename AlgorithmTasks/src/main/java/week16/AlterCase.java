@@ -1,11 +1,14 @@
 package week16;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
 
 public class AlterCase {
     public static void main(String[] args) {
-       String str = "we are the world";
-     //  String str="ThIs Is SoMe CoDe";
+       //String str = "We are the world";
+       String str="this is some code";
         System.out.println(alterCase(str));
     }
     public static String alterCase(String s) {
@@ -32,6 +35,12 @@ public class AlterCase {
             }
         return str.toString();
     }
+    @Test
+public void testAlterCase(){
+        Assertions.assertEquals("We ArE tHe WoRlD",alterCase("We are the world"));
+        Assertions.assertEquals("ThIs Is SoMe CoDe",alterCase("this is some code"));
+
+}
 
     public static String alterCase1(String s) {
 
