@@ -21,7 +21,7 @@ public class Bucket {
             if (pair.key.equals(key)) {
                 pair.value = value;
             }
-            ;
+
             found = true;
         }
         if (!found) {
