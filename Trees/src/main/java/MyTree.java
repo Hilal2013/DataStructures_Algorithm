@@ -86,6 +86,7 @@ public class MyTree {
 
     // Task 1- Implement contains(int value)
     public boolean contains(int value) {
+
         if (root == null) return false;
         TNode current = root;
         while (current != null) {
@@ -94,6 +95,9 @@ public class MyTree {
             else return true;
         }
         return false;
+
+
+
 /*
   if (root == null) {
         return false;

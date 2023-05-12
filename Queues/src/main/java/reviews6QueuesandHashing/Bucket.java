@@ -17,6 +17,7 @@ public class Bucket {
     public void update(int key,int value) {
         //if element exists update it//if no such element and put
         boolean found = false;
+
         for (KeyValue<Integer, Integer> pair : bucket) {
             if (pair.key.equals(key)) {
                 pair.value = value;
@@ -26,10 +27,11 @@ public class Bucket {
         }
         if (!found) {
             this.bucket.add(new KeyValue<>(key, value));
+
         }
     }
     public void remove(int key) {
-        //if element exists update it//if no such element and put
+        //if element exists remove
         boolean found = false;
         for (KeyValue<Integer, Integer> pair : bucket) {
             if (pair.key.equals(key)) {
