@@ -1,15 +1,18 @@
+import java.util.LinkedHashMap;
 import java.util.TreeMap;
 
 public class IntegerToRoman {
     public static void main(String[] args) {
 
-        int num = 95;
+        int num = 1994;//MCMXCIV
+
         System.out.println(intToRoman(num));
 
     }
 
     public static String intToRoman(int num) {
-        TreeMap<Integer, String> map = new TreeMap<>();
+        LinkedHashMap<Integer, String> map = new LinkedHashMap<>();
+        //for insertion order
         map.put(1000, "M");
         map.put(900, "CM");
         map.put(500, "D");
@@ -23,22 +26,16 @@ public class IntegerToRoman {
         map.put(5, "V");
         map.put(4, "IV");
         map.put(1, "I");
-        String numStr = String.valueOf(num);
-        String result = "";
-
-        int p = numStr.length() - 1;//for example 1994  length=4 p=3 10^3
-        for (int i = 0; i < numStr.length(); i++) {
-            char ch = numStr.charAt(i);
-            if (i == 0) {
-                result += map.get(ch * Math.pow(10, p));//1000
-            }  else {
-                result += map.get(ch * Math.pow(10, p--));
-
+        StringBuilder str=new StringBuilder();
+        for (int key : map.keySet()) {
+            while(num >= key) {
+                num-=key;
+               // num = num - key;
+                str.append(map.get(key));
+              //  str = str + map.get(key);
             }
-
         }
-
-        return result;
+        return str.toString();
     }
 }
 /*
@@ -85,5 +82,21 @@ Constraints:
 else if (i == numStr.length() - 1) {
                 result += map.get(num % Math.pow(10, p));
             }
+
+  int p = numStr.length() - 1;//for example 1994  length=4 p=3 10^3
+        for (int i = 0; i < numStr.length(); i++) {
+            char ch = numStr.charAt(i);
+            if (i == 0) {
+                result += map.get(ch * Math.pow(10, p));//1000
+            }  else {
+                result += map.get(ch * Math.pow(10, p--));
+
+            }
+
+        }
+
+        return result;
+
+
 
  */
