@@ -15,7 +15,7 @@ public class MapReview {
 
     public static Character findFirstNonRepeating(String str) {
         // create a map : this will cost me space complexity O(n)
-        Map<Character, Integer> map = new TreeMap<>();
+        Map<Character, Integer> map = new HashMap<>();
         //HashMap does not guarantee the insertion order whereas TreeMap maintains insertion order.
         // Since we are looking for the first non repeating char from left once we trace
         // it back it should be in the insertion order from left to right.
@@ -33,7 +33,7 @@ public class MapReview {
         System.out.println(map);
         // start from the beginning and check if there is a char with frequency 1
         for (char ch : str.toCharArray()) {
-            if(map.get(ch)==1){
+            if(map.get(ch)==3){
                 return ch;
             }
         }
