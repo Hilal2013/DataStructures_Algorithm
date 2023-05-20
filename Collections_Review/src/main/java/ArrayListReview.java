@@ -35,7 +35,7 @@ public class ArrayListReview {
         //or
         ListIterator iter1 = students.listIterator();
         while (iter1.hasPrevious()) {
-            System.out.println(iter1.hasPrevious());
+            System.out.println(iter1.previous());
         }
 // 3. for each loop
         System.out.println("Printing with for_each loop..............");
