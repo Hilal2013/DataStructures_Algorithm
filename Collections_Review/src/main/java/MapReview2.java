@@ -15,8 +15,8 @@ public class MapReview2 {
 //How to get values
         List<String> list=studentsMap.values().stream().toList();
 // How to get values and sort them
-        List<String> list2=studentsMap.values().stream().sorted((o1, o2) -> o1.compareToIgnoreCase(o2)).collect(Collectors.toList());
-        System.out.println(list2);//[Alison, Jack, Julia]
+        List<String> list2=studentsMap.values().stream().sorted((o2, o1) -> o1.compareToIgnoreCase(o2)).collect(Collectors.toList());
+        System.out.println(list2);//[Julia, Jack, Alison]
         // How to get entry Set
 Set<Map.Entry<Integer,String>> entries=studentsMap.entrySet();
         System.out.println(entries);//[1=Jack, 2=Julia, 3=Alison]
