@@ -16,9 +16,6 @@
         <module>AlgorithmTasks</module>
         <module>Stacks</module>
 
-        <module>AlgorithmProblems</module>
-        <module>Queues</module>
-        <module>Trees</module>
     </modules>
 
     <properties>
