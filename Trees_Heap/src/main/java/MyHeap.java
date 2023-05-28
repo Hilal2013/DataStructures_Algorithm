@@ -9,6 +9,14 @@ public class MyHeap {
         this.size = 0;
     }
 
+    //we can create new array new constructor
+    public MyHeap(int[] arr) {
+        this.items = new int[arr.length];
+        this.size = arr.length;
+        this.items=arr;
+        buildHeap();
+    }
+
     public int leftChildIndex(int index) {
         return 2 * index + 1;
 
@@ -28,7 +36,7 @@ public class MyHeap {
 
 //if any index less than size i have valid right or left child
 
-        return leftChildIndex(index) < size;
+        return leftChildIndex(index) <=size;
 
 
     }
@@ -37,7 +45,7 @@ public class MyHeap {
 
 //if any index less than size i have valid right or left child
 
-        return rightChildIndex(index) < size;
+        return rightChildIndex(index) <= size;
 
     }
 
@@ -78,8 +86,8 @@ public class MyHeap {
     public void insert(int value) {
         if (size == items.length) throw new IllegalStateException();
         else {
-            items[size] = value;
-            size++;
+            items[size++] = value;
+           // size++;
             //  items[size++]=value;
             bubbleUp();
         }
@@ -133,15 +141,24 @@ public class MyHeap {
         return items[0];
     }
 
-    public void heapifySort(int[] array) {
-        int index = array.length / 2 - 1;//start point
-        while (index > 0) {
-            if (items[largerChildIndex(index)] > items[index]) {//Compare the greatest of children with the parent//find larger greate
-                bubbleUp();
-            }
-            index--;
+    // Heapify new array
+
+    public void buildHeap(){
+        // start index n/2 -1 to zero exclude leaves
+        int startIndex=(size/2)-1;
+        // go up level by level
+        for(int i=startIndex;i>=0;i--){
+            heapify(i);
         }
-
     }
-
+    public void heapify(int index){
+        // check if index element is a valid parent
+        if(!isValidParent(index)) {
+            int largestChildIndex= largerChildIndex(index);
+            swap(index, largestChildIndex);
+            // recursively go down on the affected sub tree
+            // continue until ith element is in place
+            heapify(largestChildIndex);
+        }
+    }
 }

@@ -13,7 +13,11 @@ public class HeapApp {
         heap.printHeap();//130, 81, 52, 45, 61,
         heap.remove();
         heap.printHeap();//81, 61, 52, 45,
-        int[] numbers={1,2,5,6,8,21,0};
+     //   int[] numbers={1,2,5,6,8,21,0};
+        int[] numbers={5,8,6,8,8,2,1,5,7,6,7,4};
+        MyHeap heap2=new MyHeap(numbers);
+
+        heap2.printHeap();
 
     }
 }
