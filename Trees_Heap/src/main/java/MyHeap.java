@@ -36,7 +36,7 @@ public class MyHeap {
 
 //if any index less than size i have valid right or left child
 
-        return leftChildIndex(index) <=size;
+        return leftChildIndex(index) <size;
 
 
     }
@@ -45,7 +45,7 @@ public class MyHeap {
 
 //if any index less than size i have valid right or left child
 
-        return rightChildIndex(index) <= size;
+        return rightChildIndex(index) < size;
 
     }
 
