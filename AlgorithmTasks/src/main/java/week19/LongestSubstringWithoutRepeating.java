@@ -8,61 +8,71 @@ public class LongestSubstringWithoutRepeating {
         String s = "aabcbcbb";
         //String s = "bbb";
 
-        System.out.println( lengthOfLongestSubstring(s));;
+        System.out.println(lengthOfLongestSubstringSlidingWindow(s));
+        ;
 
 
     }
 
-    public static int lengthOfLongestSubstring1(String s) {
-        //i didnt want to use set because abbc it will be abc but it is not substring//
-        Map<Character, Integer> map = new HashMap<>();
-        int longestLength = 0;
-        List<List<StringBuilder>> list=new ArrayList<>();
-StringBuilder str=new StringBuilder();
-        int first=0;
-        int second=first+1;
-//        for (int i = 0; i <s.length() ; i++) {
-//            char chF=s.charAt(first);
-//            char chS=s.charAt(second);
-//            if(chF!=chS){
-//                list.add(Arrays.asList(str.append(chS)));
-//            }
-//        }
-//        System.out.println(list);
-     while(first<s.length()&&second<s.length()){
-         if(s.charAt(first)!=s.charAt(second)){
-            // list.add(Arrays.asList(str.append(s.charAt(first))));
-             list.add(Arrays.asList(str.append(s.charAt(second))));
-                     second++;
-
-         } else if(s.charAt(first)==s.charAt(second)) {
-             first++;
-             second++;
-         }
-     }
-        System.out.println(list);
-
-        return 0;
+    public static int lengthOfLongestSubstringBruteForceSet(String s) {
+        int max = 0;
+        for (int i = 0; i < s.length(); i++) {
+            Set<Character> set = new HashSet<>();
+            int len = 0;
+            for (int j = i; j < s.length(); j++) {
+                char c = s.charAt(j);
+                if (set.contains(c)) {
+                    break;
+                }
+                set.add(c);
+                len++;
+            }
+            max = Math.max(max, len);
+        }
+        return max;
     }
-    public static int lengthOfLongestSubstring(String s){
+
+    public static int lengthOfLongestSubstringSlidingWindow(String s) {
+//The main idea behind the sliding window technique is to convert two nested
+//loops into a single loop (time complexity from O(n^2) to O(n)).
+        if (s == null || s.length() == 0) return 0;
+        Set<Character> set = new HashSet<>();
+        int max = 0;
+        int i = 0, j = 0;
+        while (i < s.length()) {
+            char ch = s.charAt(i);
+            while (set.contains(ch)) {
+                set.remove(s.charAt(j));
+                ++j;
+            }
+            set.add(ch);
+            max = Math.max(max, i - j + 1);
+            i++;
+
+
+        }
+        return max;
+    }
+
+    public static int lengthOfLongestSubstring(String s) {
 //i didnt want to use set because abbc it will be abc but it is not substring//
 
-        List<Character> list   = new ArrayList<>();
+        List<Character> list = new ArrayList<>();
         int longestLength = 0;
-        int first=0;
-        int second=first;//they will start from same point index 0
-        while(first<s.length() && second<s.length() ){
-            if(!list.contains(s.charAt(second))){//a b
+        int first = 0;
+        int second = first;//they will start from same point index 0
+        while (first < s.length() && second < s.length()) {
+            if (!list.contains(s.charAt(second))) {//a b
                 list.add(s.charAt(second));//ab
                 second++;//1 2
-                longestLength=Math.max(longestLength,list.size());//1 2 3
-            }else {
-               list.clear();//if doesnt contain im gonna remove that i added before
+                longestLength = Math.max(longestLength, list.size());//1 2 3
+            } else {
+                list.clear();//if doesnt contain im gonna remove that i added before
                 first++;//b
-                second=first;
+                second = first;
             }
         }
-return longestLength;
+        return longestLength;
     }
 
 }
