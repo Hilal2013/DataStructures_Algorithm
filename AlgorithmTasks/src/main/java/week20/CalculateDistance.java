@@ -12,9 +12,13 @@ public class CalculateDistance {
                 Math.round(calculateDistance(5, 6, 6, 3) * 10.0)
                         / 10.0);//3.2
 
+
+
     }
 
     public static Double calculateDistance(int x1, int y1, int x2, int y2){
+
+
 //sqrt((x2-x1)^2 + (y2-y1)^2)
         return Math.sqrt(Math.pow(x2-x1,2)+Math.pow(y2-y1,2));
 
