@@ -15,6 +15,7 @@
         <module>LinkedLists</module>
         <module>AlgorithmTasks</module>
         <module>Stacks</module>
+        <module>SearchAlgorithm</module>
 
     </modules>
 
