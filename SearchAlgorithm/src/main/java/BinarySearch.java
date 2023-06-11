@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class BinarySearch {
     public static void main(String[] args) {
         int[] numbers = new int[10];
@@ -6,7 +8,7 @@ public class BinarySearch {
         }
         System.out.println(binarySearchIterative(numbers, 6));
             System.out.println(binarySearchRecursive(numbers, 6));
-
+        System.out.println(Arrays.binarySearch(numbers,6));
 
     }
 
@@ -25,7 +27,7 @@ public class BinarySearch {
             }
 
         }
-        return -1;
+        return -1;//data couldn't be found
 
     }
 
