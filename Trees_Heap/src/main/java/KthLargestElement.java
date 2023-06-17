@@ -1,7 +1,7 @@
 public class KthLargestElement {
     public static void main(String[] args) {
-        int[] numbers={3,2,1,5,6,4};
-        //int[] numbers={3,2,3,1,2,4,5,5,6};
+       // int[] numbers={3,2,1,5,6,4};
+        int[] numbers={3,2,3,1,2,4,5,5,6};
 
         System.out.println(getKthLargest(numbers, 4));
     }
@@ -12,7 +12,7 @@ public class KthLargestElement {
             heap.insert(array[i]);
         }
 
-        for (int i = 0; i <k-1 ; i++) {//im gonna remeve k-1 times remove
+        for (int i = 0; i <k-1 ; i++) {//im gonna remove k-1 times remove
             heap.remove();
         }
         return heap.peek();
